@@ -17,11 +17,8 @@ export async function POST(req) {
       is_static: body.is_static ?? false,
     };
 
-    const signature = crypto
-      .createHash("sha256")
-      .update(JSON.stringify(payload) + timestamp + API_KEY)
-      .digest("hex");
-
+    const signature = "06f29044a840e13b21e1820205e856405819a38d458ccc7dc90b6de157dba6fa";
+    
     const response = await fetch(
       "https://gateway.ceklaporan.com/api/qr/generate",
       {
